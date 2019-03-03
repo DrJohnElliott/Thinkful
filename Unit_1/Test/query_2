@@ -1,0 +1,4 @@
+
+--SELECT * FROM PUBLIC.ash_listings
+
+COPY PUBLIC.ash_listings FROM '/home/john/jupyter/Thinkful/Unit_1/ABB/listings.csv' DELIMITER ',' CSV HEADER;

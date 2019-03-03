@@ -1,0 +1,28 @@
+CREATE TABLE PUBLIC.ash_listings( id bigint,
+    name text COLLATE pg_catalog."default",
+    host_id bigint,
+    host_name text COLLATE pg_catalog."default",
+    neighbourhood_group text COLLATE pg_catalog."default",
+    neighbourhood text COLLATE pg_catalog."default",
+    latitude text COLLATE pg_catalog."default",
+    longitude text COLLATE pg_catalog."default",
+    room_type text COLLATE pg_catalog."default",
+    price money,
+    minimum_nights integer,
+    number_of_reviews integer,
+    last_review date,
+    reviews_per_month real,
+    calculated_host_listings_count integer,
+    availability_365 text COLLATE pg_catalog."default"
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.ash_listings
+    OWNER to postgres;
+	
+--SELECT * FROM PUBLIC.ash_listings
+
+--COPY PUBLIC.'ash_listings' FROM '~/home/john/jupyter/Thinkful/Unit_1/listings.csv' DELIMITER ',' CSV HEADER;

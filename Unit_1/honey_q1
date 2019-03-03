@@ -1,0 +1,53 @@
+-- Unit 1
+-- Lesson 2
+-- Project 4
+
+-- Drill 1  
+-- 'What was the hottest day in our data set? Where was that?'
+
+SELECT  
+	state,
+	numcol,
+	yieldpercol,
+	year,
+	MAX(totalprod) as max_prod
+FROM
+	honey_data
+GROUP BY 1,2,3,4
+ORDER BY max_prod DESC;
+--LIMIT 10;
+
+
+--Drill 2
+-- 'How many trips started at each station?'
+
+--SELECT  
+	--start_station,
+	--COUNT(*) AS station_count
+--FROM
+	--trips
+--GROUP BY start_station;
+
+-- Drill 3
+-- 'What's the shortest trip that happened?'
+
+--SELECT 
+  --  trip_id,
+	--MIN(duration) as short_trip_time
+--FROM
+	--trips
+--GROUP BY trip_id
+--ORDER BY short_trip_time DESC
+--LIMIT 1;
+
+-- Drill 4
+-- 'What is the average trip duration, by end station?'
+
+--SELECT 
+  --  end_station,
+	--AVG(duration) as average_trip_time
+--FROM
+	--trips
+--GROUP BY end_station
+--ORDER BY average_trip_time DESC;
+

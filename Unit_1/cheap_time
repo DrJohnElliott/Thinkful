@@ -1,0 +1,10 @@
+SELECT  
+	listing_id,
+	date,
+	MIN(price) as min_price
+FROM
+	calendar
+WHERE available LIKE 't'
+GROUP BY 1,2
+ORDER BY max_price DESC;
+--LIMIT 100;

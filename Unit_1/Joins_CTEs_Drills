@@ -1,0 +1,127 @@
+-- Unit 1
+-- Lesson 2
+-- Project 5
+
+-- Drill 1
+-- 'What are the three longest trips on rainy days?'
+
+WITH 
+	trip_data
+AS (
+	-- query weather table to find events (days) with 'Rain'
+	SELECT
+		SUBSTRING(start_date FROM 1 FOR 10) AS my_start,
+		SUBSTRING(end_date FROM 1 FOR 10) AS my_end,
+		duration,
+		trip_id
+	FROM
+		trips
+	GROUP BY 1,2,3,4
+)
+-- Join rain_days with trips
+
+SELECT	
+	w.events,
+	w.date,
+	t.my_start,
+	t.my_end,
+	t.duration,
+	t.trip_id
+FROM
+	weather w 
+JOIN
+ 	trip_data t
+ON
+    t.my_end = w.date	OR ( t.my_start = w.date)
+WHERE events LIKE 'Rain'
+GROUP BY 1,2,3,4,5,6
+ORDER BY duration DESC
+LIMIT 3;
+
+
+-- Drill 2
+-- 'Which station is full most often?'
+
+
+SELECT
+	s.station_id,
+	stations.name,
+COUNT(CASE WHEN docks_available = 0 THEN 'FULL' END) no_room
+    
+FROM 
+    status s
+JOIN
+	stations
+ON
+stations.station_id = s.station_id
+Group BY 1,2
+ORDER BY no_room DESC;
+
+
+-- Drill 3
+-- 'Return a list of stations with a count of number of trips starting at that station but
+-- ordered by dock count.'
+
+
+SELECT
+	
+	s.dockcount,
+	s.name,
+	COUNT(t.start_station) AS trip_station
+    
+FROM 
+    stations s
+JOIN
+	trips t
+ON
+	t.start_station = s.name
+Group BY 1,2
+ORDER BY s.dockcount DESC;
+
+-- Drill 4
+-- '(Challenge) What's the length of the longest trip for each day it rains anywhere?'
+
+
+WITH 
+	trip_data
+AS (
+	-- query weather table to find events (days) with 'Rain'
+	SELECT
+		SUBSTRING(start_date FROM 1 FOR 10) AS my_start,
+		SUBSTRING(end_date FROM 1 FOR 10) AS my_end,
+		duration,
+		trip_id
+	FROM
+		trips
+	GROUP BY 1,2,3,4
+),
+-- Join rain_days with trips
+rain_days 
+AS ( 
+	SELECT	
+		w.events,
+		w.date,
+		t.my_start,
+		t.my_end,
+		t.duration,
+		t.trip_id
+	FROM
+		weather w 
+	JOIN
+ 		trip_data t
+	ON
+    	t.my_end = w.date	OR ( t.my_start = w.date)
+	WHERE events LIKE 'Rain'
+	GROUP BY 1,2,3,4,5,6
+	ORDER BY duration DESC
+)
+SELECT
+	date,
+	MAX(duration) max_trip
+FROM 
+	rain_days 
+GROUP BY 1
+ORDER BY max_trip DESC;
+
+
+
