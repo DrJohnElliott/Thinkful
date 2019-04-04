@@ -1,0 +1,14 @@
+artifact_uri: /home/john/jupyter/Thinkful/Unit_3/capstone/mlruns/1/c3e4912adfe14cceb7768682c7cf34b7/artifacts
+end_time: 1554070882337
+entry_point_name: ''
+experiment_id: 1
+lifecycle_stage: active
+name: ''
+run_uuid: c3e4912adfe14cceb7768682c7cf34b7
+source_name: /home/john/python3_virtualenv/python3_env/lib/python3.6/site-packages/ipykernel_launcher.py
+source_type: 4
+source_version: ''
+start_time: 1554070882110
+status: 3
+tags: []
+user_id: john

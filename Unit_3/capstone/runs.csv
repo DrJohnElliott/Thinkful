@@ -1,0 +1,5 @@
+Run ID,Name,Source Type,Source Name,User,Status,criterion,max_depth,max_features,n_estimators,test_accuracy,valid_accuracy
+6b229d97d8a94f0e99bb07dd7927bf2b,CatBoost,LOCAL,/home/john/python3_virtualenv/python3_env/lib/python3.6/site-packages/ipykernel_launcher.py,john,FINISHED,entropy,4,None,200,0.868852459016393,0.816326530612245
+5d740f2b96ff485f90ceab3983333995,LightGBM,LOCAL,/home/john/python3_virtualenv/python3_env/lib/python3.6/site-packages/ipykernel_launcher.py,john,FINISHED,entropy,4,None,200,0.836065573770492,0.775510204081633
+2a260ba6b0ee4ad7b31e6798f9f69293,XGBoost,LOCAL,/home/john/python3_virtualenv/python3_env/lib/python3.6/site-packages/ipykernel_launcher.py,john,FINISHED,entropy,4,None,200,0.868852459016393,0.795918367346939
+2232af0991854972adf7b91a1ae83b21,Random Forest,LOCAL,/home/john/python3_virtualenv/python3_env/lib/python3.6/site-packages/ipykernel_launcher.py,john,FINISHED,entropy,4,None,20,0.852459016393443,0.816326530612245

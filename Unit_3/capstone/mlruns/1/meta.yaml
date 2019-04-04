@@ -1,0 +1,4 @@
+artifact_location: /home/john/jupyter/Thinkful/Unit_3/capstone/mlruns/1
+experiment_id: 1
+lifecycle_stage: active
+name: Training/Testing/Validation
